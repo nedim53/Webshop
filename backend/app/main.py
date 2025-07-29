@@ -10,7 +10,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",
-    "https://webshop-frontend.vercel.app"  
+    "https://webshop.vercel.app"  
 ]
 app.add_middleware(
     CORSMiddleware,
