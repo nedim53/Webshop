@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Poziv prave backend API rute
-    const response = await fetch('http://localhost:8000/auth/login', {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
 
     const data = await response.json();
     
-    const userResponse = await fetch('http://localhost:8000/auth/me', {
+    const userResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/me`, {
       headers: {
         'Authorization': `Bearer ${data.access_token}`,
       },

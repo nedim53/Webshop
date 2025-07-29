@@ -90,7 +90,7 @@ export async function POST(request: NextRequest) {
     const token = authHeader.substring(7);
 
     // Dohvati ID korisnika
-    const userResponse = await fetch('http://localhost:8000/auth/me', {
+    const userResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/me`, {
       headers: {
         'Authorization': `Bearer ${token}`,
       },

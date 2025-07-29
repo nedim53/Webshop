@@ -18,7 +18,7 @@ export async function GET(
 
     const token = authHeader.substring(7);
 
-    const response = await fetch(`http://localhost:8000/cart/${userId}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cart/${userId}`, {
       headers: {
         'Authorization': `Bearer ${token}`,
       },

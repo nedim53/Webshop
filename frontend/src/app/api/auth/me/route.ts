@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
     const token = authHeader.substring(7);
 
     // Poziv prave backend API rute
-    const response = await fetch('http://localhost:8000/auth/me', {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/me`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`,

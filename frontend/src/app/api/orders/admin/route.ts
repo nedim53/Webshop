@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
     const token = authHeader.substring(7);
 
     // Dohvati podatke o korisniku da vidimo da li je admin
-    const userResponse = await fetch('http://localhost:8000/auth/me', {
+    const userResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/me`, {
       headers: {
         'Authorization': `Bearer ${token}`,
       },
@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Dohvati admin-ove narudžbe
-    const response = await fetch(`http://localhost:8000/orders/admin/${userData.id}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders/admin/${userData.id}`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`,

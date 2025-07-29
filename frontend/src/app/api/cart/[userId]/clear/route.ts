@@ -18,7 +18,7 @@ export async function DELETE(
 
     const token = authHeader.substring(7);
 
-    const response = await fetch(`http://localhost:8000/cart/${userId}/clear`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cart/${userId}/clear`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${token}`,
