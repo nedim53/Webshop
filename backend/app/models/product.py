@@ -24,4 +24,4 @@ class Product(Base):
     seller_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     seller = relationship("User", back_populates="products")
     cart_items = relationship("CartItem", back_populates="product", cascade="all, delete-orphan")
-    order_items = relationship("OrderItem", cascade="all, delete-orphan")
+    order_items = relationship("OrderItem", back_populates="product", cascade="all, delete-orphan")
