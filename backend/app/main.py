@@ -10,8 +10,10 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",
-    "https://webshop.vercel.app"  
+    "https://webshop-neptis.vercel.app",  # automatski Vercel domen
+    "https://webshop-neptis-lcbp0sin1-nedim53s-projects.vercel.app"  # fallback deploy link
 ]
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
