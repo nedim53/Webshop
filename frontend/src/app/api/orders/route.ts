@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
     const token = authHeader.substring(7);
 
     // Dohvati podatke o korisniku da vidimo da li je admin
-    const userResponse = await fetch('http://localhost:8000/auth/me', {
+    const userResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/me`, {
       headers: {
         'Authorization': `Bearer ${token}`,
       },
@@ -31,11 +31,11 @@ export async function GET(request: NextRequest) {
     const userData = await userResponse.json();
     const isAdmin = userData.is_admin;
 
-    let ordersUrl = 'http://localhost:8000/orders/';
+    let ordersUrl = `${process.env.NEXT_PUBLIC_API_URL}/orders/`;
     
     // Ako nije admin, dohvati samo narudžbe tog korisnika
     if (!isAdmin) {
-      ordersUrl = `http://localhost:8000/orders/user/${userData.email}`;
+      ordersUrl = `${process.env.NEXT_PUBLIC_API_URL}/orders/user/${userData.email}`;
     }
 
     const response = await fetch(ordersUrl, {
@@ -107,7 +107,7 @@ export async function POST(request: NextRequest) {
     const userId = userData.id;
 
     // Kreiraj narudžbu
-    const response = await fetch(`http://localhost:8000/orders/${userId}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders/${userId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

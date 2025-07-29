@@ -9,7 +9,7 @@ export async function GET(
     const { id } = await params;
     const productId = id;
 
-    const response = await fetch(`http://localhost:8000/products/${productId}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${productId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ export async function PUT(
 
     const token = authHeader.substring(7);
 
-    const response = await fetch(`http://localhost:8000/products/${productId}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${productId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -121,7 +121,7 @@ export async function DELETE(
 
     const token = authHeader.substring(7);
 
-    const response = await fetch(`http://localhost:8000/products/${productId}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${productId}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${token}`,

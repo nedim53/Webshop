@@ -29,7 +29,7 @@ export async function PUT(
     const token = authHeader.substring(7);
 
     // Provjeri da li je korisnik admin
-    const userResponse = await fetch('http://localhost:8000/auth/me', {
+    const userResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/me`, {
       headers: {
         'Authorization': `Bearer ${token}`,
       },
@@ -50,7 +50,7 @@ export async function PUT(
       );
     }
 
-    const response = await fetch(`http://localhost:8000/products/${id}/status`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${id}/status`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

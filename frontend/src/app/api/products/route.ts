@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 // GET - dohvati sve proizvode
 export async function GET(request: NextRequest) {
   try {
-    const response = await fetch('http://localhost:8000/products/', {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const response = await fetch('http://localhost:8000/products/', {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
