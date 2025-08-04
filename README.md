@@ -1,6 +1,6 @@
 # Webshop
 
-Mini webshop aplikacija izrađena kao testni zadatak za firmu NEPTIS.
+Mini webshop aplikacija izrađena kao testni zadatak.
 
 ## 🌐 Online Demo
 
